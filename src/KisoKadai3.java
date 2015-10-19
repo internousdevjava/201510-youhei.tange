@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+
+//一応動くようになったけど、処理が終わるといちいち最初の画面に戻ってしまう。
+//少し前の処理からスタートさせたいけどやりかたがわからない。
 public class KisoKadai3 {
 	public static void main(String[] args) {
 
@@ -46,19 +49,11 @@ public class KisoKadai3 {
 							} else {
 								System.out.println(fln + "を開きました");
 							}
-							System.out.println("<編集モード> ["+ fln + "]");
-							System.out.println("[1]書き込み,[2]読み込み,[3]メインメニューへ");
-							try {
-								buf = br.readLine();
-								cmd = Integer.parseInt(buf);
-							} catch (Exception e) {
-								System.out.println("※数字以外が入っています");
-								continue;
-							}
-							switch (cmd) {
-							case 1:
-								System.out.println("<書き込みモード > ["+ fln + "]");
-								System.out.println("[1]上書き,[2]追記,[3]メインメニューへ");
+							// 編集モードでループ
+							boolean edi = true;
+							while(edi){
+								System.out.println("<編集モード> ["+ fln + "]");
+								System.out.println("[1]書き込み,[2]読み込み,[3]メインメニューへ");
 								try {
 									buf = br.readLine();
 									cmd = Integer.parseInt(buf);
@@ -68,68 +63,87 @@ public class KisoKadai3 {
 								}
 								switch (cmd) {
 								case 1:
-									// 上書き
-									System.out.println("<上書きモード> ["+ fln + "]");
-									System.out.println("文字を入力してください↓");
-									String text = br.readLine();
+									System.out.println("<書き込みモード > ["+ fln + "]");
+									System.out.println("[1]上書き,[2]追記,[3]メインメニューへ");
 									try {
-										PrintWriter pw = new PrintWriter(new BufferedWriter(
-												new FileWriter(fln)));
-										System.out.println(fln + "　に「" + text + "」を上書きしました");
-										pw.println(text);
-										pw.close();
-									} catch (IOException e) {
-										System.out.println("入出力エラーです。");
+										buf = br.readLine();
+										cmd = Integer.parseInt(buf);
+									} catch (Exception e) {
+										System.out.println("※数字以外が入っています");
+										continue;
 									}
-									continue;
+									switch (cmd) {
+									case 1:
+										// 上書き
+										System.out.println("<上書きモード> ["+ fln + "]");
+										System.out.println("文字を入力してください↓");
+										String text = br.readLine();
+										try {
+											PrintWriter pw = new PrintWriter(new BufferedWriter(
+													new FileWriter(fln)));
+											System.out.println(fln + "　に「" + text + "」を上書きしました");
+											pw.print(text);
+											pw.print("\r\n");
+											pw.close();
+										} catch (IOException e) {
+											System.out.println("入出力エラーです。");
+										}
+										continue;
+									case 2:
+										// 追記
+										System.out.println("<追記モード> ["+ fln + "]");
+										System.out.println("文字を入力してください↓");
+										text = br.readLine();
+										try {
+											FileWriter filewriter = new FileWriter(fln,true);
+											System.out.println(fln + "に");
+											System.out.println("「"+ text + "」を追記しました");
+											filewriter.write(text);
+											filewriter.write("\r\n");
+											filewriter.close();
+										} catch (IOException e) {
+											System.out.println("入出力エラーです。");
+										}
+										continue;
+									case 3:
+										edi=false;
+										continue;
+									default:
+										System.out.println("1～3の数字を入力してください");
+										continue;
+
+									}
+
 								case 2:
-									// 追記
-									System.out.println("<追記モード> ["+ fln + "]");
-									System.out.println("文字を入力してください↓");
-									text = br.readLine();
+									// 読み込み
+									System.out.println("<読み込みモード> ["+fln+"]");
 									try {
-										FileWriter filewriter = new FileWriter(fln,
-												true);
-										System.out.println(fln + "に「" + text + "」を追記しました");
-										filewriter.write(text);
-										filewriter.close();
+										FileReader filereader = new FileReader(fln);
+
+										int ch;
+										while ((ch = filereader.read()) != -1) {
+											System.out.print((char) ch);
+										}
+										System.out.println("");
+										filereader.close();
+									} catch (FileNotFoundException e) {
+										System.out.println(e);
 									} catch (IOException e) {
-										System.out.println("入出力エラーです。");
+										System.out.println(e);
 									}
 									continue;
 								case 3:
+									// メインメニューへ
+									edi=false;
 									continue;
+									// これでうまくメインメニューに戻った
+
 								default:
 									System.out.println("1～3の数字を入力してください");
 									continue;
-
 								}
-
-							case 2:
-								// 読み込み
-								System.out.println("<読み込みモード> ["+fln+"]");
-								try {
-									FileReader filereader = new FileReader(fln);
-
-									int ch;
-									while ((ch = filereader.read()) != -1) {
-										System.out.print((char) ch);
-									}
-									System.out.println("");
-									filereader.close();
-								} catch (FileNotFoundException e) {
-									System.out.println(e);
-								} catch (IOException e) {
-									System.out.println(e);
-								}
-							case 3:
-								// メインメニューへ
-								continue;// これでうまくメインメニューに戻った
-
-							default:
-								System.out.println("1～3の数字を入力してください");
-								continue;
 							}
+							
 
 						} catch (IOException e) {
 							System.out.println(e);
