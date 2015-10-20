@@ -17,51 +17,51 @@ public class KisoKadai2 {
 		int x;
 		int cnt=1;
 
-		// ³‰ğ‚Ìİ’è
-		// RandomƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+		// æ­£è§£ã®è¨­å®š
+		// Randomã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 		Random rnd = new Random();
 
 		int ran = rnd.nextInt(100)+1;
 		
-		// Š®¬‚µ‚½‚çÁ‚·
+		// å®Œæˆã—ãŸã‚‰æ¶ˆã™
 		System.out.println(ran);
 		
-		System.out.println("<1‰ñ–Ú>");
+		System.out.println("<1å›ç›®>");
 
-		// ”š‚Ì“ü—Í
+		// æ•°å­—ã®å…¥åŠ›
 		while (true) {
-			System.out.print("1`100‚Ü‚Å‚Ì”š‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢: ");
+			System.out.print("1ï½100ã¾ã§ã®æ•°å­—ã‚’å…¥ã‚Œã¦ãã ã•ã„: ");
 			InputStreamReader isr = new InputStreamReader(System.in);
 			BufferedReader br = new BufferedReader(isr);
 			try {
 				String buf = br.readLine();
 				x = Integer.parseInt(buf);
 				if (x > 100 || x < 1) {
-					System.out.println("¦1`100‚Ü‚Å‚Ì”š‚Å‚¨Šè‚¢‚µ‚Ü‚·");
+					System.out.println("â€»1ï½100ã¾ã§ã®æ•°å­—ã§ãŠé¡˜ã„ã—ã¾ã™");
 					continue;
-					//ª‚±‚ÌŒã‚É‚Ü‚½while•¶‚Ì“ª‚©‚çŠJn‚³‚¹‚½‚¢‚¯‚Ç‚â‚è•û‚ª‚í‚©‚ç‚È‚¢EEE
-					//¨continue;‚Å‚Å‚«‚Ü‚µ‚½I
+					//â†‘ã“ã®å¾Œã«ã¾ãŸwhileæ–‡ã®é ­ã‹ã‚‰é–‹å§‹ã•ã›ãŸã„ã‘ã©ã‚„ã‚Šæ–¹ãŒã‚ã‹ã‚‰ãªã„ãƒ»ãƒ»ãƒ»
+					//â†’continue;ã§ã§ãã¾ã—ãŸï¼
 				}
 			} catch (Exception e) {
-				System.out.println("¦”šˆÈŠO‚ª“ü‚Á‚Ä‚¢‚Ü‚·");
+				System.out.println("â€»æ•°å­—ä»¥å¤–ãŒå…¥ã£ã¦ã„ã¾ã™");
 				continue;
-				//‚±‚Á‚¿‚É‚à‚±‚ÌŒã‚Éwhile•¶‚Ì“ª‚©‚çŠJn‚³‚¹‚½‚¢
-				//‚ ‚ÆAreturn;‚Ìg‚¢•û‚ª‚¢‚Ü‚¢‚¿‚í‚©‚ç‚È‚¢
-				//ƒGƒ‰[‚ªo‚é‚¯‚Ç‚Æ‚è‚ ‚¦‚¸“®‚­B‚Å‚àreturn;‚ÌˆÓ–¡‚ª‚í‚©‚ç‚È‚¢B
-				//¨return;‚ÍƒNƒ‰ƒX‚©‚ç”²‚¯‚éAcontinue;‚ÍŒãˆ—‚ğƒXƒLƒbƒv‚µ‚Ä“ª‚©‚çŠJn
-				//break;‚Íƒ‹[ƒv‚©‚ç”²‚¯‚é
+				//ã“ã£ã¡ã«ã‚‚ã“ã®å¾Œã«whileæ–‡ã®é ­ã‹ã‚‰é–‹å§‹ã•ã›ãŸã„
+				//ã‚ã¨ã€return;ã®ä½¿ã„æ–¹ãŒã„ã¾ã„ã¡ã‚ã‹ã‚‰ãªã„
+				//ã‚¨ãƒ©ãƒ¼ãŒå‡ºã‚‹ã‘ã©ã¨ã‚Šã‚ãˆãšå‹•ãã€‚ã§ã‚‚return;ã®æ„å‘³ãŒã‚ã‹ã‚‰ãªã„ã€‚
+				//â†’return;ã¯ã‚¯ãƒ©ã‚¹ã‹ã‚‰æŠœã‘ã‚‹ã€continue;ã¯å¾Œå‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¦é ­ã‹ã‚‰é–‹å§‹
+				//break;ã¯ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
 			}
 			if (x > ran) {
-				System.out.println("³‰ğ‚Í‚»‚ê‚æ‚è¬‚³‚¢”‚Å‚·");
+				System.out.println("æ­£è§£ã¯ãã‚Œã‚ˆã‚Šå°ã•ã„æ•°ã§ã™");
 				cnt++;
-				System.out.println("<"+cnt+"‰ñ–Ú>");
+				System.out.println("<"+cnt+"å›ç›®>");
 			} else if (x < ran) {
-				System.out.println("³‰ğ‚Í‚»‚ê‚æ‚è‘å‚«‚¢”‚Å‚·");
+				System.out.println("æ­£è§£ã¯ãã‚Œã‚ˆã‚Šå¤§ãã„æ•°ã§ã™");
 				cnt++;
-				System.out.println("<"+cnt+"‰ñ–Ú>");
+				System.out.println("<"+cnt+"å›ç›®>");
 			} else {
-				System.out.println("³‰ğ‚Å‚·I‚¨‚ß‚Å‚Æ‚¤");
-				System.out.print(cnt+"‰ñ‚Å¬Œ÷‚µ‚Ü‚µ‚½");
+				System.out.println("æ­£è§£ã§ã™ï¼ãŠã‚ã§ã¨ã†");
+				System.out.print(cnt+"å›ã§æˆåŠŸã—ã¾ã—ãŸ");
 				break;
 			}
 		}

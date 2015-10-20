@@ -9,17 +9,17 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 
-//ˆê‰“®‚­‚æ‚¤‚É‚È‚Á‚½‚¯‚ÇAˆ—‚ªI‚í‚é‚Æ‚¢‚¿‚¢‚¿Å‰‚Ì‰æ–Ê‚É–ß‚Á‚Ä‚µ‚Ü‚¤B
-//­‚µ‘O‚Ìˆ—‚©‚çƒXƒ^[ƒg‚³‚¹‚½‚¢‚¯‚Ç‚â‚è‚©‚½‚ª‚í‚©‚ç‚È‚¢B
+//ä¸€å¿œå‹•ãã‚ˆã†ã«ãªã£ãŸã‘ã©ã€å‡¦ç†ãŒçµ‚ã‚ã‚‹ã¨ã„ã¡ã„ã¡æœ€åˆã®ç”»é¢ã«æˆ»ã£ã¦ã—ã¾ã†ã€‚
+//å°‘ã—å‰ã®å‡¦ç†ã‹ã‚‰ã‚¹ã‚¿ãƒ¼ãƒˆã•ã›ãŸã„ã‘ã©ã‚„ã‚Šã‹ãŸãŒã‚ã‹ã‚‰ãªã„ã€‚
 public class KisoKadai3 {
 	public static void main(String[] args) {
 
-		int cmd; // ƒRƒ}ƒ“ƒh“ü—Í—p
+		int cmd; // ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›ç”¨
 
 		while (true) {
-			System.out.println("ƒƒƒjƒ…[ƒ‚[ƒh„");
-			System.out.println("[1]ƒtƒ@ƒCƒ‹–¼“ü—Í,[2]I—¹");
-			System.out.print("ƒL[‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: ");
+			System.out.println("ï¼œãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒ¢ãƒ¼ãƒ‰ï¼");
+			System.out.println("[1]ãƒ•ã‚¡ã‚¤ãƒ«åå…¥åŠ›,[2]çµ‚äº†");
+			System.out.print("ã‚­ãƒ¼ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: ");
 			InputStreamReader isr = new InputStreamReader(System.in);
 			BufferedReader br = new BufferedReader(isr);
 			try {
@@ -27,96 +27,96 @@ public class KisoKadai3 {
 				cmd = Integer.parseInt(buf);
 				switch (cmd) {
 				case 1:
-					// V‹Kì¬/ŠJ‚­
-					System.out.println("<V‹Kì¬/ŠJ‚­>");
-					System.out.println("ƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢:");
-					System.out.println("—á:c:\\Users\\internous\\ƒtƒ@ƒCƒ‹–¼.txt");
+					// æ–°è¦ä½œæˆ/é–‹ã
+					System.out.println("<æ–°è¦ä½œæˆ/é–‹ã>");
+					System.out.println("ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ã‚’å…¥ã‚Œã¦ãã ã•ã„:");
+					System.out.println("ä¾‹:c:\\Users\\internous\\ãƒ•ã‚¡ã‚¤ãƒ«å.txt");
 					try{
 						String fln = br.readLine();
-						// ƒtƒ@ƒCƒ‹ƒpƒX‚ğw’è‚·‚é
+						// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’æŒ‡å®šã™ã‚‹
 						File newfile = new File(fln);
-						// ƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğæ“¾‚·‚é
+						// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹
 						File dir=new File(newfile.getParent());
 
 						if(!dir.exists()){
-							System.out.println("ƒtƒHƒ‹ƒ_‚ª‚ ‚è‚Ü‚¹‚ñB:"+newfile.getAbsolutePath());
+							System.out.println("ãƒ•ã‚©ãƒ«ãƒ€ãŒã‚ã‚Šã¾ã›ã‚“ã€‚:"+newfile.getAbsolutePath());
 							dir.mkdirs();
-							System.out.println("ì¬¬Œ÷");
+							System.out.println("ä½œæˆæˆåŠŸ");
 						} 
 						try {
 							if (newfile.createNewFile()) {
-								System.out.println(fln + "‚Ìì¬‚É¬Œ÷‚µ‚Ü‚µ‚½");
+								System.out.println(fln + "ã®ä½œæˆã«æˆåŠŸã—ã¾ã—ãŸ");
 							} else {
-								System.out.println(fln + "‚ğŠJ‚«‚Ü‚µ‚½");
+								System.out.println(fln + "ã‚’é–‹ãã¾ã—ãŸ");
 							}
-							// •ÒWƒ‚[ƒh‚Åƒ‹[ƒv
+							// ç·¨é›†ãƒ¢ãƒ¼ãƒ‰ã§ãƒ«ãƒ¼ãƒ—
 							boolean edi = true;
 							while(edi){
-								System.out.println("<•ÒWƒ‚[ƒh> ["+ fln + "]");
-								System.out.println("[1]‘‚«‚İ,[2]“Ç‚İ‚İ,[3]ƒƒCƒ“ƒƒjƒ…[‚Ö");
+								System.out.println("<ç·¨é›†ãƒ¢ãƒ¼ãƒ‰> ["+ fln + "]");
+								System.out.println("[1]æ›¸ãè¾¼ã¿,[2]èª­ã¿è¾¼ã¿,[3]ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸");
 								try {
 									buf = br.readLine();
 									cmd = Integer.parseInt(buf);
 								} catch (Exception e) {
-									System.out.println("¦”šˆÈŠO‚ª“ü‚Á‚Ä‚¢‚Ü‚·");
+									System.out.println("â€»æ•°å­—ä»¥å¤–ãŒå…¥ã£ã¦ã„ã¾ã™");
 									continue;
 								}
 								switch (cmd) {
 								case 1:
-									System.out.println("<‘‚«‚İƒ‚[ƒh > ["+ fln + "]");
-									System.out.println("[1]ã‘‚«,[2]’Ç‹L,[3]ƒƒCƒ“ƒƒjƒ…[‚Ö");
+									System.out.println("<æ›¸ãè¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ > ["+ fln + "]");
+									System.out.println("[1]ä¸Šæ›¸ã,[2]è¿½è¨˜,[3]ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸");
 									try {
 										buf = br.readLine();
 										cmd = Integer.parseInt(buf);
 									} catch (Exception e) {
-										System.out.println("¦”šˆÈŠO‚ª“ü‚Á‚Ä‚¢‚Ü‚·");
+										System.out.println("â€»æ•°å­—ä»¥å¤–ãŒå…¥ã£ã¦ã„ã¾ã™");
 										continue;
 									}
 									switch (cmd) {
 									case 1:
-										// ã‘‚«
-										System.out.println("<ã‘‚«ƒ‚[ƒh> ["+ fln + "]");
-										System.out.println("•¶š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢«");
+										// ä¸Šæ›¸ã
+										System.out.println("<ä¸Šæ›¸ããƒ¢ãƒ¼ãƒ‰> ["+ fln + "]");
+										System.out.println("æ–‡å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„â†“");
 										String text = br.readLine();
 										try {
 											PrintWriter pw = new PrintWriter(new BufferedWriter(
 													new FileWriter(fln)));
-											System.out.println(fln + "@‚Éu" + text + "v‚ğã‘‚«‚µ‚Ü‚µ‚½");
+											System.out.println(fln + "ã€€ã«ã€Œ" + text + "ã€ã‚’ä¸Šæ›¸ãã—ã¾ã—ãŸ");
 											pw.print(text);
 											pw.print("\r\n");
 											pw.close();
 										} catch (IOException e) {
-											System.out.println("“üo—ÍƒGƒ‰[‚Å‚·B");
+											System.out.println("å…¥å‡ºåŠ›ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
 										}
 										continue;
 									case 2:
-										// ’Ç‹L
-										System.out.println("<’Ç‹Lƒ‚[ƒh> ["+ fln + "]");
-										System.out.println("•¶š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢«");
+										// è¿½è¨˜
+										System.out.println("<è¿½è¨˜ãƒ¢ãƒ¼ãƒ‰> ["+ fln + "]");
+										System.out.println("æ–‡å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„â†“");
 										text = br.readLine();
 										try {
 											FileWriter filewriter = new FileWriter(fln,true);
-											System.out.println(fln + "‚É");
-											System.out.println("u"+ text + "v‚ğ’Ç‹L‚µ‚Ü‚µ‚½");
+											System.out.println(fln + "ã«");
+											System.out.println("ã€Œ"+ text + "ã€ã‚’è¿½è¨˜ã—ã¾ã—ãŸ");
 											filewriter.write(text);
 											filewriter.write("\r\n");
 											filewriter.close();
 										} catch (IOException e) {
-											System.out.println("“üo—ÍƒGƒ‰[‚Å‚·B");
+											System.out.println("å…¥å‡ºåŠ›ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
 										}
 										continue;
 									case 3:
 										edi=false;
 										continue;
 									default:
-										System.out.println("1`3‚Ì”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+										System.out.println("1ï½3ã®æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 										continue;
 
 									}
 
 								case 2:
-									// “Ç‚İ‚İ
-									System.out.println("<“Ç‚İ‚İƒ‚[ƒh> ["+fln+"]");
+									// èª­ã¿è¾¼ã¿
+									System.out.println("<èª­ã¿è¾¼ã¿ãƒ¢ãƒ¼ãƒ‰> ["+fln+"]");
 									try {
 										FileReader filereader = new FileReader(fln);
 
@@ -133,13 +133,13 @@ public class KisoKadai3 {
 									}
 									continue;
 								case 3:
-									// ƒƒCƒ“ƒƒjƒ…[‚Ö
+									// ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸
 									edi=false;
 									continue;
-									// ‚±‚ê‚Å‚¤‚Ü‚­ƒƒCƒ“ƒƒjƒ…[‚É–ß‚Á‚½
+									// ã“ã‚Œã§ã†ã¾ããƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«æˆ»ã£ãŸ
 
 								default:
-									System.out.println("1`3‚Ì”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+									System.out.println("1ï½3ã®æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 									continue;
 								}
 							}
@@ -149,26 +149,26 @@ public class KisoKadai3 {
 							System.out.println(e);
 						}
 					}catch (Exception e){
-						System.out.println("“ü—Íƒ~ƒX‚ª‚ ‚è‚Ü‚·");
+						System.out.println("å…¥åŠ›ãƒŸã‚¹ãŒã‚ã‚Šã¾ã™");
 					}
 
 					continue;
 				case 2:
-					// I—¹
-					System.out.println("I—¹‚µ‚Ü‚·");
+					// çµ‚äº†
+					System.out.println("çµ‚äº†ã—ã¾ã™");
 					return;
 				default:
-					System.out.println("1`2‚Ì”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+					System.out.println("1ï½2ã®æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 					continue;
 				}
 			} catch (Exception e) {
-				System.out.println("¦”šˆÈŠO‚ª“ü‚Á‚Ä‚¢‚Ü‚·");
+				System.out.println("â€»æ•°å­—ä»¥å¤–ãŒå…¥ã£ã¦ã„ã¾ã™");
 				continue;
-				// ‚±‚Á‚¿‚É‚à‚±‚ÌŒã‚Éwhile•¶‚Ì“ª‚©‚çŠJn‚³‚¹‚½‚¢
-				// ‚ ‚ÆAreturn;‚Ìg‚¢•û‚ª‚¢‚Ü‚¢‚¿‚í‚©‚ç‚È‚¢
-				// ƒGƒ‰[‚ªo‚é‚¯‚Ç‚Æ‚è‚ ‚¦‚¸“®‚­B‚Å‚àreturn;‚ÌˆÓ–¡‚ª‚í‚©‚ç‚È‚¢B
-				// ¨return;‚ÍƒNƒ‰ƒX‚©‚ç”²‚¯‚éAcontinue;‚ÍŒãˆ—‚ğƒXƒLƒbƒv‚µ‚Ä“ª‚©‚çŠJn
-				// break;‚Íƒ‹[ƒv‚©‚ç”²‚¯‚é
+				// ã“ã£ã¡ã«ã‚‚ã“ã®å¾Œã«whileæ–‡ã®é ­ã‹ã‚‰é–‹å§‹ã•ã›ãŸã„
+				// ã‚ã¨ã€return;ã®ä½¿ã„æ–¹ãŒã„ã¾ã„ã¡ã‚ã‹ã‚‰ãªã„
+				// ã‚¨ãƒ©ãƒ¼ãŒå‡ºã‚‹ã‘ã©ã¨ã‚Šã‚ãˆãšå‹•ãã€‚ã§ã‚‚return;ã®æ„å‘³ãŒã‚ã‹ã‚‰ãªã„ã€‚
+				// â†’return;ã¯ã‚¯ãƒ©ã‚¹ã‹ã‚‰æŠœã‘ã‚‹ã€continue;ã¯å¾Œå‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¦é ­ã‹ã‚‰é–‹å§‹
+				// break;ã¯ãƒ«ãƒ¼ãƒ—ã‹ã‚‰æŠœã‘ã‚‹
 			}
 		}
 	}
