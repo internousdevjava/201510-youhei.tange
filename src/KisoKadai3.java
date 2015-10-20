@@ -39,15 +39,14 @@ public class KisoKadai3 {
 						File dir=new File(newfile.getParent());
 
 						if(!dir.exists()){
-							System.out.println("フォルダがありません。:"+newfile.getAbsolutePath());
 							dir.mkdirs();
-							System.out.println("作成成功");
+							System.out.println("指定したフォルダは存在しなかったため、フォルダを新しく作成しました");
 						} 
 						try {
 							if (newfile.createNewFile()) {
-								System.out.println(fln + "の作成に成功しました");
+								System.out.println("ファイル"+fln + "を新規作成しました");
 							} else {
-								System.out.println(fln + "を開きました");
+								System.out.println("ファイル"+fln + "を開きました");
 							}
 							// 編集モードでループ
 							boolean edi = true;
